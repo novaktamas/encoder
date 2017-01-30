@@ -82,7 +82,9 @@ Partial Class Belepes
         Me.Controls.Add(Me.PictureBox1)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MaximizeBox = False
+        Me.MaximumSize = New System.Drawing.Size(375, 229)
         Me.MinimizeBox = False
+        Me.MinimumSize = New System.Drawing.Size(375, 229)
         Me.Name = "Belepes"
         Me.Text = "Belepés"
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()

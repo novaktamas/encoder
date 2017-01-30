@@ -19,7 +19,12 @@ Public Class Form1
 
     End Sub
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        kod()
+        If szoveg.TextBox1.TextLength > 0 Then
+            kod()
+        Else : MsgBox("Üres szöveget próbálsz lekódolni!", MsgBoxStyle.Critical, "HIBA")
+
+        End If
+
     End Sub
 
     Private Sub FeltöltésToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles FeltöltésToolStripMenuItem.Click
@@ -96,10 +101,14 @@ Public Class Form1
                 y = y + 1
             End If
         End While
-        MsgBox("Sikeres visszatöltés")
-        grp = Graphics.FromImage(bmp)
-        grp.Clear(Nothing)
-        PictureBox1.Image = bmp
+        If szoveg.TextBox1.TextLength > 0 Then
+            MsgBox("Sikeres visszatöltés")
+            grp = Graphics.FromImage(bmp)
+            grp.Clear(Nothing)
+            PictureBox1.Image = bmp
+        Else : MsgBox("Hibás a kép, kérem ellenőrizze!", MsgBoxStyle.Exclamation, "HIBA")
+        End If
+
     End Sub
     Private Sub kod()
         grp.Clear(Nothing)
@@ -162,6 +171,17 @@ Public Class Form1
         Belepes.Close()
         szoveg.Close()
         megnyit.Close()
+        info.Close()
+        ascii.Close()
+    End Sub
+
+    Private Sub InformációToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles InformációToolStripMenuItem.Click
+        info.Show()
+
+    End Sub
+
+    Private Sub Button3_Click_1(sender As Object, e As EventArgs) Handles Button3.Click
+        help.Show()
     End Sub
 End Class
 

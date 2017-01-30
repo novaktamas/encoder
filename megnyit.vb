@@ -37,6 +37,19 @@
 
     End Sub
 
+    Private Sub ToolStripButton1_Click(sender As Object, e As EventArgs) Handles ToolStripButton1.Click
+        OpenFileDialog1.Filter = "BMP! | *.bmp"
+        OpenFileDialog1.ShowDialog()
+    End Sub
+
+    Private Sub ToolStripButton2_Click(sender As Object, e As EventArgs)
+
+    End Sub
+
+    Private Sub ToolStripLabel1_Click(sender As Object, e As EventArgs) Handles ToolStripLabel1.Click
+
+    End Sub
+
     Private Sub RadioButton2_CheckedChanged(sender As Object, e As EventArgs) Handles RadioButton2.CheckedChanged
         HScrollBar1.Enabled = False
         VScrollBar1.Enabled = False
