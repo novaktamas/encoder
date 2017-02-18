@@ -134,6 +134,7 @@ Partial Class info
         Me.Controls.Add(Me.TextBox4)
         Me.Controls.Add(Me.TextBox2)
         Me.Controls.Add(Me.TextBox1)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.MaximizeBox = False
         Me.MaximumSize = New System.Drawing.Size(388, 350)
         Me.MinimumSize = New System.Drawing.Size(388, 350)

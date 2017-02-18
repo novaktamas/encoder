@@ -24,6 +24,7 @@ Partial Class help
     Private Sub InitializeComponent()
         Me.ListBox1 = New System.Windows.Forms.ListBox()
         Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.LinkLabel1 = New System.Windows.Forms.LinkLabel()
         Me.SuspendLayout()
         '
         'ListBox1
@@ -32,7 +33,7 @@ Partial Class help
         Me.ListBox1.Font = New System.Drawing.Font("Courier New", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(238, Byte))
         Me.ListBox1.FormattingEnabled = True
         Me.ListBox1.ItemHeight = 16
-        Me.ListBox1.Items.AddRange(New Object() {"Mentés", "Forrógombok", "Képmegtekintő", "Szöveg", "Kódolás korlátai", "Tisztítás", "Jelszó lecserélése", "ASCII táblázat"})
+        Me.ListBox1.Items.AddRange(New Object() {"Mentés", "Képmegtekintő", "", "Szöveg", "Kódolás korlátai", "Tisztítás", "Jelszó lecserélése", "ASCII táblázat", "[Log]"})
         Me.ListBox1.Location = New System.Drawing.Point(28, 12)
         Me.ListBox1.Name = "ListBox1"
         Me.ListBox1.Size = New System.Drawing.Size(157, 228)
@@ -40,19 +41,31 @@ Partial Class help
         '
         'TextBox1
         '
-        Me.TextBox1.Enabled = False
         Me.TextBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(238, Byte))
         Me.TextBox1.Location = New System.Drawing.Point(210, 12)
         Me.TextBox1.Multiline = True
         Me.TextBox1.Name = "TextBox1"
+        Me.TextBox1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
         Me.TextBox1.Size = New System.Drawing.Size(390, 228)
         Me.TextBox1.TabIndex = 1
+        '
+        'LinkLabel1
+        '
+        Me.LinkLabel1.AutoSize = True
+        Me.LinkLabel1.Location = New System.Drawing.Point(346, 243)
+        Me.LinkLabel1.Name = "LinkLabel1"
+        Me.LinkLabel1.Size = New System.Drawing.Size(92, 13)
+        Me.LinkLabel1.TabIndex = 2
+        Me.LinkLabel1.TabStop = True
+        Me.LinkLabel1.Text = "Jelszó lecserélése"
+        Me.LinkLabel1.Visible = False
         '
         'help
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(634, 261)
+        Me.Controls.Add(Me.LinkLabel1)
         Me.Controls.Add(Me.TextBox1)
         Me.Controls.Add(Me.ListBox1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow
@@ -67,4 +80,5 @@ Partial Class help
 
     Friend WithEvents ListBox1 As ListBox
     Friend WithEvents TextBox1 As TextBox
+    Friend WithEvents LinkLabel1 As LinkLabel
 End Class

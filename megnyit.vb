@@ -50,6 +50,7 @@
 
     End Sub
 
+
     Private Sub RadioButton2_CheckedChanged(sender As Object, e As EventArgs) Handles RadioButton2.CheckedChanged
         HScrollBar1.Enabled = False
         VScrollBar1.Enabled = False

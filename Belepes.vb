@@ -10,7 +10,7 @@ Public Class Belepes
     End Sub
     Private Sub belep()
 
-        If TextBox1.Text = "hexadecimal" Then
+        If TextBox1.Text = My.Settings.jelsz Then
             jelsz = True
         Else : jelsz = False
             MsgBox("HIBA", MsgBoxStyle.Critical, "HIBA")
@@ -29,5 +29,9 @@ Public Class Belepes
         If Asc(e.KeyChar) = 13 Then
             belep()
         End If
+    End Sub
+
+    Private Sub Belepes_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
     End Sub
 End Class

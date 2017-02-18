@@ -41,10 +41,11 @@ Partial Class Form1
         Me.TörlésToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.InformációToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.Button3 = New System.Windows.Forms.Button()
+        Me.EventLog1 = New System.Diagnostics.EventLog()
         Me.ContextMenuStrip2.SuspendLayout()
         Me.MenuStrip1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.EventLog1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'ContextMenuStrip2
@@ -67,7 +68,9 @@ Partial Class Form1
         '
         Me.Button1.Cursor = System.Windows.Forms.Cursors.Cross
         resources.ApplyResources(Me.Button1, "Button1")
-        Me.Button1.ForeColor = System.Drawing.Color.Lime
+        Me.Button1.FlatAppearance.BorderColor = System.Drawing.Color.Lime
+        Me.Button1.FlatAppearance.BorderSize = 3
+        Me.Button1.ForeColor = System.Drawing.Color.Black
         Me.Button1.Name = "Button1"
         Me.Button1.UseVisualStyleBackColor = True
         '
@@ -75,7 +78,9 @@ Partial Class Form1
         '
         Me.Button2.Cursor = System.Windows.Forms.Cursors.Cross
         resources.ApplyResources(Me.Button2, "Button2")
-        Me.Button2.ForeColor = System.Drawing.Color.Red
+        Me.Button2.FlatAppearance.BorderColor = System.Drawing.Color.Red
+        Me.Button2.FlatAppearance.BorderSize = 3
+        Me.Button2.ForeColor = System.Drawing.Color.Black
         Me.Button2.Name = "Button2"
         Me.Button2.UseVisualStyleBackColor = True
         '
@@ -139,25 +144,21 @@ Partial Class Form1
         Me.PictureBox1.Name = "PictureBox1"
         Me.PictureBox1.TabStop = False
         '
-        'Button3
+        'EventLog1
         '
-        Me.Button3.BackColor = System.Drawing.Color.Transparent
-        resources.ApplyResources(Me.Button3, "Button3")
-        Me.Button3.FlatAppearance.BorderColor = System.Drawing.Color.White
-        Me.Button3.FlatAppearance.BorderSize = 0
-        Me.Button3.Name = "Button3"
-        Me.Button3.UseVisualStyleBackColor = False
+        Me.EventLog1.Log = "Application"
+        Me.EventLog1.SynchronizingObject = Me
         '
         'Form1
         '
         resources.ApplyResources(Me, "$this")
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.WhiteSmoke
-        Me.Controls.Add(Me.Button3)
         Me.Controls.Add(Me.MenuStrip1)
         Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.PictureBox1)
+        Me.HelpButton = True
         Me.MainMenuStrip = Me.MenuStrip1
         Me.MaximizeBox = False
         Me.MinimizeBox = False
@@ -167,6 +168,7 @@ Partial Class Form1
         Me.MenuStrip1.ResumeLayout(False)
         Me.MenuStrip1.PerformLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.EventLog1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -188,5 +190,5 @@ Partial Class Form1
     Friend WithEvents KépfeltöltésToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents KépMegtekintésToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents InformációToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents Button3 As Button
+    Friend WithEvents EventLog1 As EventLog
 End Class

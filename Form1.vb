@@ -1,6 +1,7 @@
 ﻿Imports System.ComponentModel
 
 Public Class Form1
+    Dim log As New System.Text.StringBuilder
 
     Dim x As Integer = -1
     Dim y As Integer = 0
@@ -14,9 +15,12 @@ Public Class Form1
 
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+
         szoveg.Show()
         szoveg.Focus()
-
+        log.Append(My.Settings.log)
+        log.Append("Open " & Now & vbNewLine)
     End Sub
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         If szoveg.TextBox1.TextLength > 0 Then
@@ -67,7 +71,9 @@ Public Class Form1
 
     End Sub
     Private Sub vissza()
-                
+        log.Append("Decode1 " & Now & vbNewLine)
+        Dim leng As String
+
         igaz = True
         x = 0
         y = 0
@@ -101,16 +107,22 @@ Public Class Form1
                 y = y + 1
             End If
         End While
+
+        leng = szoveg.TextBox1.TextLength
         If szoveg.TextBox1.TextLength > 0 Then
             MsgBox("Sikeres visszatöltés")
             grp = Graphics.FromImage(bmp)
             grp.Clear(Nothing)
             PictureBox1.Image = bmp
-        Else : MsgBox("Hibás a kép, kérem ellenőrizze!", MsgBoxStyle.Exclamation, "HIBA")
+            log.Append("Decode " & leng & " karakter " & Now & vbNewLine)
+        Else : MsgBox("Hibás a kép, kérlek ellenőrizd!", MsgBoxStyle.Exclamation, "HIBA")
         End If
 
     End Sub
     Private Sub kod()
+        log.Append("Encode1 " & Now & vbNewLine)
+        Dim leng As String
+        leng = szoveg.TextBox1.TextLength
         grp.Clear(Nothing)
         PictureBox1.Image = bmp
 
@@ -141,6 +153,7 @@ Public Class Form1
                 RGB(0) = 0
                 RGB(1) = 0
                 RGB(2) = 0
+
             End If
         Next
         clr = Color.FromArgb(RGB(0), RGB(1), RGB(2))
@@ -149,6 +162,7 @@ Public Class Form1
 
         MsgBox("Lekódolva")
         szoveg.TextBox1.Clear()
+        log.Append("Encode " & leng & " karakter " & Now & vbNewLine)
     End Sub
 
     Private Sub zaras()
@@ -168,11 +182,15 @@ Public Class Form1
         MsgBox("Mentve")
     End Sub
     Private Sub Form1_Closing(sender As Object, e As CancelEventArgs) Handles Me.Closing
+        log.Append("Close " & Now & vbNewLine)
+
+        My.Settings.log = log.ToString
         Belepes.Close()
         szoveg.Close()
         megnyit.Close()
         info.Close()
         ascii.Close()
+        jelsz.Close()
     End Sub
 
     Private Sub InformációToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles InformációToolStripMenuItem.Click
@@ -180,8 +198,17 @@ Public Class Form1
 
     End Sub
 
-    Private Sub Button3_Click_1(sender As Object, e As EventArgs) Handles Button3.Click
+    Private Sub Button3_Click_1(sender As Object, e As EventArgs)
+
+    End Sub
+
+    Private Sub Form1_HelpButtonClicked(sender As Object, e As CancelEventArgs) Handles Me.HelpButtonClicked
+        My.Settings.log = log.ToString
         help.Show()
+    End Sub
+
+    Private Sub EventLog1_EntryWritten(sender As Object, e As EntryWrittenEventArgs) Handles EventLog1.EntryWritten
+
     End Sub
 End Class
 
